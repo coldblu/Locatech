@@ -35,7 +35,7 @@
                 $sql = "select * from client where usuario_id=".$_SESSION['IdUsuario'].";";
                 $consulta->execute();
                 $check = $consulta->fetch(PDO::FETCH_ASSOC);
-                if($check["cpf"] != ' '){                    
+                if(isset($check["cpf"])){                    
                     echo "<table class=''>";                   
                     foreach($pdo->query($sql) as $row )
                         {
