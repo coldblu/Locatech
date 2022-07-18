@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+/* CSS RESET */
+*{
+  margin:0;
+  padding:0;
+  border:none;
+  text-decoration:none;
+  font-style:normal;
+  list-style-type:none;
+  vertical-align:baseline;
+ }
+
+/* Formatação body */
+body{    
+	font-family: Arial;
+	background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(12, 83, 116));
+	background-position: center;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
