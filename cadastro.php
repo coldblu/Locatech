@@ -25,6 +25,7 @@
 			<div ><input class="" type="password" name="senha" maxlength='35' required></div>
 			<br/>
 			<input class="buttons" type="submit" >
+			<a class="buttons" href='index.php'>Voltar</a>
 		</form>
 	</div>
 </body>

@@ -15,7 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="css/estilo.css" media="screen"/>
 </head>
 <body>
-    <div class=""><!--Menu Superior-->
+    <div class="MenuContaTop"><!--Menu Superior-->
 		<?php
 			if(isset($_SESSION["ConectedLT"])){
 				echo"<ul align='right'>";				
@@ -23,12 +23,30 @@
 				echo"<li><a href='validacao.php?act=logout'>Desconectar</a></li>";
 				echo"</ul>";
 			}
+			else{
+				echo"<ul align='right'>";				
+				echo"<li><a href='login.php'>Login</a></li>";
+				echo"<li><a href='cadastro.php'>Cadastro</a></li>";
+				echo"</ul>";
+			}
 		?>
 	</div>
-	<div >
-		<h1> Hello World </h1>
-        <p><a href='cadastro.php'>Cadastro</a></p>
-        <p><a href='login.php'>Login</a></p>
+
+	<div > <!--Banner-->
+		<h1 align='center'> Locatech </h1>
     </div>
+
+	<div class='MenuCentro'> <!--Menu Centro-->
+		Menu Centro
+	</div>
+
+	<div class='Produtos'>
+		Produtos Produtos Produtos Produtos Produtos Produtos 
+		Produtos Produtos Produtos Produtos Produtos Produtos 
+		Produtos Produtos Produtos Produtos Produtos Produtos 
+		Produtos Produtos Produtos Produtos Produtos Produtos 
+		Produtos Produtos Produtos Produtos Produtos Produtos 
+		Produtos Produtos Produtos Produtos Produtos Produtos Produtos 
+	</div>
 </body>
 </html>

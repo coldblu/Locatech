@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="css/estilo.css" media="screen"/>
 </head>
 <body>
-    <div class=""><!--Menu top -->
+    <div class="MenuContaTop"><!--Menu top -->
 		<?php
 			if(isset($_SESSION["ConectedLT"])){
 				echo"<ul align='right'>";				
@@ -65,6 +65,7 @@
             }
             else{
                 echo "<h1>Logado como Administrador!</h1>";
+                echo "<a href=''>Cadastrar Aparelho</a></li>";
 
             }
         ?>

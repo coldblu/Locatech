@@ -15,19 +15,22 @@
 	<link rel="stylesheet" type="text/css" href="css/estilo.css" media="screen"/>
 </head>
 <body>
-	<div >
-		<div>
-			<h1>Acesso</h1> 
-			<form action="validacao.php?act=login" method="post" >                
-				<div class="mylabel">Login:</div>
-				<div ><input class="" type="text" id="login" name="login" required></div>
-				<br/>
-				<div class="mylabel">Senha: </div>
-				<div ><input class="" type="password" id="senha" name="senha" required></div>
-				<br/>
-				<input class="buttons" type="submit" value="Entrar">
+
+		<div class='Acesso'>
+			<h1 align='center'>Acesso</h1> 
+			<form action="validacao.php?act=login" method="post" >   
+				<fieldset >              
+					<div class="mylabel">Login:</div>
+					<div ><input class="" type="text" id="login" name="login" required></div>
+					<br/>
+					<div class="mylabel">Senha: </div>
+					<div ><input class="" type="password" id="senha" name="senha" required></div>
+					<br/>
+					<input class="buttons" type="submit" value="Entrar">
+					<a class="buttons" href='index.php'>Voltar</a>
+				</fieldset > 
 			</form>
 		</div>
-    </div>
+
 </body>
 </html>

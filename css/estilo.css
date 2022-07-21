@@ -20,3 +20,191 @@ body{
 	background-size: 100%;
 }
 
+/* Menu topo 8 */
+.MenuContaTop{
+
+	height:50px;
+	background-color:#000;
+	color:#FFF;
+	
+}
+
+.MenuContaTop>ul{
+	margin-right:2.5%;	/*Menu CSS Reset */
+	padding:0;
+	
+	}
+.MenuContaTop>li{	 
+	padding:0;	/*Menu CSS Reset */
+	list-style:none;
+	}
+.MenuContaTop>a{
+	margin:0;
+	padding:0;	/*Menu CSS Reset */
+	text-decoration:none;
+	}
+.MenuContaTop>ul>li{
+	display:inline; /*COloca a lista na horizontal*/	
+	margin-left:1%;
+}
+
+.MenuContaTop>ul>li>a{						/* Formatação dos links na lista */
+	background-color:#FFF;
+	color:#000;
+	font-weight:bolder;
+	text-decoration:none;
+	text-transform:uppercase;/* letra maiúscula*/
+	padding:3px 20px;
+	line-height:50px;
+
+	border-radius:8px;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	
+	box-shadow:5px 4px 4px rgba(0, 0, 0, 0.6);
+	-moz-box-shadow:5px 4px 4px rgba(0, 0, 0, 0.6);
+	-webkit-box-shadow:5px 4px 4px rgba(0, 0, 0, 0.6);
+			
+    transition:all,0.9S;
+	      }
+
+.MenuContaTop>ul>li>a:hover{				
+	color:#FFF;
+	text-shadow:3px 3px 4px rgba(200, 200, 200, 1);
+	font-weight:bolder;
+	padding:3px 20px;
+	background:-webkit-gradient(linear, 79% 71%, 23% 0%, from(#00BEFF), to(#0091FF));/* cor com degradê*/
+
+	border-radius:8px;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	
+	box-shadow:2px 2px 4px rgba(0, 0, 0, 0.6);
+	-moz-box-shadow:2px 2px 4px rgba(0, 0, 0, 0.6);
+	-webkit-box-shadow:2px 2px 4px rgba(0, 0, 0, 0.6);
+			
+	transition:all,0.5S;
+}
+
+/* Banner */
+
+/* Menu Centro */
+.MenuCentro{
+	height:auto;
+	background-color:#000;
+	margin-top: 2%;
+	margin-left: 5%;
+	margin-right: 5%;
+	/*--- Borda ----*/
+	border:1px solid #000;	
+	border-radius:5px;/*Compativel com Chrome*/
+	-moz-border-radius:5px;/* Compativel com Firefox*/
+	-webkit-border-radius:5px;/*Compativel com IE8/9/10/EDGE*/	
+	box-shadow:2px 2px 5px rgba(5, 5, 5, 0.7);/*Sobreamento da DIV*/
+	-moz-box-shadow:5px 5px 8px rgba(9, 9, 9, 0.7);
+	-webkit-box-shadow:5px 5px 8px rgba(9, 9, 9, 0.7);
+}
+
+.MenuCentro>ul{
+	 margin-top:5px;
+	 margin-bottom:5px;
+	 /*Menu CSS Reset */
+	 padding:0;
+	}
+.MenuCentro>li{
+	
+	 padding:0;	/*Menu CSS Reset */
+	 list-style:none;
+	}
+.MenuCentro>a{
+	margin-top:0;
+	padding:0;	/*Menu CSS Reset */
+	text-decoration:none;
+	}
+.MenuCentro>ul>li{
+	display:inline; /*COloca a lista na horizontal*/	
+	margin-left:10px;
+
+}
+
+.MenuCentro>ul>li>a{						/* Formatação dos links na lista */
+	background-color:#FFF;
+	color:#000;
+	text-decoration:none;
+	font-weight:bolder;
+	text-transform:uppercase;/* letra maiúscula*/
+	padding:2px 4px;
+	line-height:50px;
+	border-radius:8px;
+
+			
+    transition:all,0.9S;
+	      }
+
+.MenuCentro>ul>li>a:hover{				
+	color:#FFF;
+	text-shadow:3px 3px 4px rgba(200, 200, 200, 1);
+	font-weight:bolder;
+	padding:2px 4px;
+	background:-webkit-gradient(linear, 79% 71%, 23% 0%, from(#00BEFF), to(#0091FF));/* cor com degradê*/
+
+	border-radius:8px;
+
+			
+	transition:all,0.5S;
+}
+
+/* Produtos */
+.Produtos{
+	height:auto;
+	background-color:#000;
+	margin-top: 2%;
+	margin-bottom: 3%;
+	margin-left: 5%;
+	margin-right: 5%;
+	/*--- Borda ----*/
+	border:1px solid #000;	
+	border-radius:5px;/*Compativel com Chrome*/
+	-moz-border-radius:5px;/* Compativel com Firefox*/
+	-webkit-border-radius:5px;/*Compativel com IE8/9/10/EDGE*/	
+	box-shadow:2px 2px 5px rgba(5, 5, 5, 0.7);/*Sobreamento da DIV*/
+	-moz-box-shadow:5px 5px 8px rgba(9, 9, 9, 0.7);
+	-webkit-box-shadow:5px 5px 8px rgba(9, 9, 9, 0.7);
+}
+
+/* Acesso */
+.Acesso{
+	position: center;
+	background-color: rgb(240, 222, 222);
+	height: auto;
+	width: 50%;
+	margin-left: 25%;
+}
+
+.Acesso>form>fieldset{
+	background-color: rgb(190, 15, 15);
+}
+
+/* Outro */
+.buttons{
+	background-color:#AAA;
+	margin-bottom: 5%;
+	color:#000;
+	font-weight:bolder;
+	text-transform:uppercase;/* letra maiúscula*/
+	margin-top: 10px;
+	padding:5px 8px;
+	border:1px solid #000;
+	border-radius:8px;	
+    transition:all,0.9S;
+}
+.buttons:hover{
+	color:#FFF;
+	margin-bottom: 5%;
+	text-shadow:3px 3px 4px rgba(200, 200, 200, 1);
+	font-weight:bolder;
+	padding:6px 10px;
+	background:-webkit-gradient(linear, 87% 51%, 87% 75%, from(#00BEFF), to(#0091FF));/* cor com degradê*/
+	border-radius:8px;
+	transition:all,0.5S;
+}
