@@ -15,18 +15,20 @@
 	<link rel="stylesheet" type="text/css" href="css/estilo.css" media="screen"/>
 </head>
 <body>
-
-    <div id="cadast">
-		<h1>Cadastro</h1>
-		<form action="inserir.php?act=CadUsuario" method="post">
-			<div class="">Login: </div>
-			<div ><input class="" type="text" name="login" maxlength='35' required></div>
-			<div class="">Senha: </div>
-			<div ><input class="" type="password" name="senha" maxlength='35' required></div>
-			<br/>
-			<input class="buttons" type="submit" >
+	<div class='Acesso'>
+		<div class="Formulario">
+			<h2>Cadastro</h2>
+			<form action="inserir.php?act=CadUsuario" method="post">
+				<div class="">Login: </div>
+				<div ><input class="" type="text" name="login" maxlength='35' required></div>
+				<div class="">Senha: </div>
+				<div ><input class="" type="password" name="senha" maxlength='35' required></div>
+				<br/>
+				<input class="buttons" type="submit" value="Cdastrar">
+			</form>
+			<br/><br/>
 			<a class="buttons" href='index.php'>Voltar</a>
-		</form>
+		</div>
 	</div>
 </body>
 </html>

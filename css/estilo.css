@@ -2,13 +2,15 @@
 
 /* CSS RESET */
 *{
-  margin:0;
-  padding:0;
-  border:none;
-  text-decoration:none;
-  font-style:normal;
-  list-style-type:none;
-  vertical-align:baseline;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	text-decoration:none;
+	font-style: normal;
+	list-style-type:none;
+	vertical-align:baseline;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
  }
 
 /* Formatação body */
@@ -172,19 +174,48 @@ body{
 	-webkit-box-shadow:5px 5px 8px rgba(9, 9, 9, 0.7);
 }
 
-/* Acesso */
+/* Acesso - Login & Cadastro*/
 .Acesso{
-	position: center;
-	background-color: rgb(240, 222, 222);
+	background: linear-gradient(45deg, #77C, #339);
+	background-repeat: no-repeat;
+	min-height: 100vh;
+	min-width: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.Formulario{
+	background:rgba(200, 200, 200, 1);
+	max-width: 350px;
+	min-height: 40vh;
+	padding: 3rem;
+	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+	border-radius: 8px;
+}
+/* Painel */
+.Painel{
 	height: auto;
-	width: 50%;
-	margin-left: 25%;
+	width: 80%;
+	margin: 3% 10%;
+	padding: 3% 1%;
+	background-color: #AAA;
+	border-radius: 10px;
+	border: #000;
+	box-shadow: 5px 5px 8px rgba(9, 9, 9, 0.7);
+
 }
 
-.Acesso>form>fieldset{
-	background-color: rgb(190, 15, 15);
+form{
+	display: flex;
+	flex-direction: column;
 }
 
+form input[type="submit"]{
+	margin-top: 2rem;
+	padding: 0.4rem;
+	background:#0091FF;
+}
 /* Outro */
 .buttons{
 	background-color:#AAA;
