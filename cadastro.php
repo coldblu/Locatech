@@ -17,17 +17,18 @@
 <body>
 	<div class='Acesso'>
 		<div class="Formulario">
-			<h2>Cadastro</h2>
+			<h2 align='center'>Cadastro</h2>
 			<form action="inserir.php?act=CadUsuario" method="post">
 				<div class="">Login: </div>
 				<div ><input class="" type="text" name="login" maxlength='35' required></div>
 				<div class="">Senha: </div>
 				<div ><input class="" type="password" name="senha" maxlength='35' required></div>
 				<br/>
-				<input class="buttons" type="submit" value="Cdastrar">
+				<input class="buttons" type="submit" value="Cadastrar">
+				<a class="buttons" href='index.php'>Voltar</a>
 			</form>
 			<br/><br/>
-			<a class="buttons" href='index.php'>Voltar</a>
+			
 		</div>
 	</div>
 </body>

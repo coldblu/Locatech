@@ -15,6 +15,7 @@
 
 /* Formatação body */
 body{    
+	background: linear-gradient(45deg, rgb(203, 203, 226), rgb(143, 143, 241));
 	font-family: Arial;
 	background-position: center;
 	background-attachment: fixed;
@@ -93,7 +94,7 @@ body{
 /* Menu Centro */
 .MenuCentro{
 	height:auto;
-	background-color:#000;
+	background-color:rgba(252, 248, 248, 0.479);
 	margin-top: 2%;
 	margin-left: 5%;
 	margin-right: 5%;
@@ -130,12 +131,12 @@ body{
 }
 
 .MenuCentro>ul>li>a{						/* Formatação dos links na lista */
-	background-color:#FFF;
-	color:#000;
+	background-color:rgba(255, 255, 255, 0);
+	color:rgb(0, 0, 0);
 	text-decoration:none;
 	font-weight:bolder;
 	text-transform:uppercase;/* letra maiúscula*/
-	padding:2px 4px;
+	padding: 1rem 2rem;
 	line-height:50px;
 	border-radius:8px;
 
@@ -147,7 +148,7 @@ body{
 	color:#FFF;
 	text-shadow:3px 3px 4px rgba(200, 200, 200, 1);
 	font-weight:bolder;
-	padding:2px 4px;
+	padding:1rem 2rem;
 	background:-webkit-gradient(linear, 79% 71%, 23% 0%, from(#00BEFF), to(#0091FF));/* cor com degradê*/
 
 	border-radius:8px;
@@ -157,13 +158,14 @@ body{
 }
 
 /* Produtos */
-.Produtos{
+.Conteudo{
 	height:auto;
-	background-color:#000;
+	background-color:rgba(252, 248, 248, 0.479);
 	margin-top: 2%;
 	margin-bottom: 3%;
 	margin-left: 5%;
 	margin-right: 5%;
+	padding: 2rem 2rem;
 	/*--- Borda ----*/
 	border:1px solid #000;	
 	border-radius:5px;/*Compativel com Chrome*/
@@ -176,7 +178,7 @@ body{
 
 /* Acesso - Login & Cadastro*/
 .Acesso{
-	background: linear-gradient(45deg, #77C, #339);
+	background: linear-gradient(45deg, rgb(126, 126, 189), #339);
 	background-repeat: no-repeat;
 	min-height: 100vh;
 	min-width: 100vh;
@@ -199,7 +201,7 @@ body{
 	width: 80%;
 	margin: 3% 10%;
 	padding: 3% 1%;
-	background-color: #AAA;
+	background-color:rgba(255, 255, 255, 0.61);
 	border-radius: 10px;
 	border: #000;
 	box-shadow: 5px 5px 8px rgba(9, 9, 9, 0.7);
@@ -209,6 +211,22 @@ body{
 form{
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+}
+
+form div{
+	font-size: 1.1rem;
+	margin-top: 1rem;
+
+}
+
+form input{
+	padding: 0.4rem;
+	background:#dadfe4;
+	border: 2px;
+	border-color: #000;
+	border-radius: 5px;
+	border-style: solid;
 }
 
 form input[type="submit"]{
@@ -216,15 +234,34 @@ form input[type="submit"]{
 	padding: 0.4rem;
 	background:#0091FF;
 }
+
+/*Barra de pesquisa */
+.SearchBar{
+	display: inline;
+	margin: 1rem 3rem;
+}
+
+.SearchBar input{
+	width: 30%;
+	padding: 0.4rem;
+	background:#f3f3f3;
+	border: 2px;
+	border-color: #000;
+	border-radius: 5px;
+	border-style: solid;
+}
+
+
 /* Outro */
 .buttons{
 	background-color:#AAA;
 	margin-bottom: 5%;
 	color:#000;
+	font-size: medium;
 	font-weight:bolder;
 	text-transform:uppercase;/* letra maiúscula*/
 	margin-top: 10px;
-	padding:5px 8px;
+	padding:3px 5px;
 	border:1px solid #000;
 	border-radius:8px;	
     transition:all,0.9S;
@@ -233,8 +270,9 @@ form input[type="submit"]{
 	color:#FFF;
 	margin-bottom: 5%;
 	text-shadow:3px 3px 4px rgba(200, 200, 200, 1);
+	font-size: medium;
 	font-weight:bolder;
-	padding:6px 10px;
+	padding:3px 5px;
 	background:-webkit-gradient(linear, 87% 51%, 87% 75%, from(#00BEFF), to(#0091FF));/* cor com degradê*/
 	border-radius:8px;
 	transition:all,0.5S;
