@@ -60,9 +60,26 @@
 						echo "</table>";
 					}
 					else{
-						echo"<li><a href='cadcliente.php'>Adicionar dados pessoais</a></li>";
+						echo "<h2 align='center'>Adicionar dados Pessoais</h1>";
+						$pdo = new PDO('mysql:host=localhost;dbname=locatech;charset=utf8', "root", "");
+						$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+						$consulta = $pdo->prepare("select * from client where usuario_id=".$_SESSION['IdUsuario'].";");
+						//Formulario
+						echo "<form action='inserir.php?act=CadClient' method='post'>";
+							echo "<div class=''>CPF: </div>";
+							echo "<div ><input class='' type='text' name='cpf' maxlength='11' required></div>";
+							echo "<div class=''>Nome completo: </div>";
+							echo "<div ><input class='' type='text' name='nome' maxlength='45' required></div>";
+							echo "<div class=''>Endereço: </div>";
+							echo "<div ><input class='' type='text' name='endereco' maxlength='45' required></div>";
+							echo "<div class=''>Data de Nascimento: </div>";
+							echo "<div ><input class='' type='date' name='data' maxlength='45' required></div>";
+							echo "<div><input type='hidden' type='number' id='id' name='id' value='".$_SESSION['IdUsuario']."' required></td>";
+							echo "<input class='buttons' type='submit' value='Cadastrar'>";
+						echo "</form>";
+		
 					}
-                   echo "</div>";
+                echo "</div>";
             }
             else{
 				echo "<div class='Painel' >";
