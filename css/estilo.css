@@ -25,7 +25,7 @@ body{
 
 /* Menu topo 8 */
 .MenuContaTop{
-
+	position: sticky;
 	height:50px;
 	background-color:#000;
 	color:#FFF;
@@ -213,6 +213,14 @@ body{
 	margin-bottom: 3%;
 }
 
+.Painel div{
+	margin: 3% 2%;
+	padding: 2% 2%;
+}
+
+.Painel ul{
+
+}
 form{
 	display: flex;
 	flex-direction: column;
@@ -274,6 +282,32 @@ form input[type="submit"]{
 .buttons:hover{
 	color:#FFF;
 	margin-bottom: 5%;
+	text-shadow:3px 3px 4px rgba(200, 200, 200, 1);
+	font-size: medium;
+	font-weight:bolder;
+	padding:3px 5px;
+	background:-webkit-gradient(linear, 87% 51%, 87% 75%, from(#00BEFF), to(#0091FF));/* cor com degradê*/
+	border-radius:8px;
+	transition:all,0.5S;
+}
+
+.buttons2{
+	background-color:#FFF;
+	margin: 1% 2%;
+	width: 25rem;
+	height: 2rem;
+	font-size: medium;
+	font-weight:bolder;
+	text-align: center;
+	text-transform:uppercase;/* letra maiúscula*/
+	padding:3px 5px;
+	border:1px solid #000;
+	border-radius:8px;	
+    transition:all,0.9S;
+}
+.buttons2:hover{
+	width: 25rem;
+	margin: 2% 3%;
 	text-shadow:3px 3px 4px rgba(200, 200, 200, 1);
 	font-size: medium;
 	font-weight:bolder;

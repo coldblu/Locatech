@@ -36,31 +36,44 @@
                 $check = $consulta->fetch(PDO::FETCH_ASSOC);
 				echo "<div class='Painel'>";
 				echo "<h1 align='center' >Painel do usuário</h1>";
-					if(isset($check["cpf"])){                    
-						echo "<table class=''>";                   
-						foreach($pdo->query($sql) as $row )
-							{
-								echo "<tr>";
-									echo "<td class=''><b>Nome</b>: </td>";
-									echo "<td class=''>".$row["nome"]."</td>";
-								echo "</tr>";
-								echo "<tr>";
-									echo "<td class=''><b>CPF: </b></td>";
-									echo "<td class=''>".$row["cpf"]."</td>";	
-								echo "</tr>";
-								echo "<tr>";
-									echo "<td class=''><b>Endereco </b></td>";
-									echo "<td class=''>".$row["endereco"]."</td>";
-								echo "</tr>";
-								echo "<tr>";
-									echo "<td class=''><b>nascimento </b></td>";
-									echo "<td class=''>".$row["nascimento"]."</td>";
-								echo "</tr>";
-							}
-						echo "</table>";
+					if(isset($check["cpf"])){     
+						echo "<div >";
+							echo "<h2 align='center'>Dados cadastrais</h2>";
+							echo "<table class=''>";                   
+							foreach($pdo->query($sql) as $row )
+								{
+									echo "<tr>";
+										echo "<td class=''><b>Nome</b>: </td>";
+										echo "<td class=''>".$row["nome"]."</td>";
+									echo "</tr>";
+									echo "<tr>";
+										echo "<td class=''><b>CPF: </b></td>";
+										echo "<td class=''>".$row["cpf"]."</td>";	
+									echo "</tr>";
+									echo "<tr>";
+										echo "<td class=''><b>Endereco </b></td>";
+										echo "<td class=''>".$row["endereco"]."</td>";
+									echo "</tr>";
+									echo "<tr>";
+										echo "<td class=''><b>nascimento </b></td>";
+										echo "<td class=''>".$row["nascimento"]."</td>";
+									echo "</tr>";
+								}
+							echo "</table>";
+						echo "</div>";
+						
+						echo "<div >";
+							echo "<h2 align='center'>Menu de opções</h2>";
+							echo "<ul>";
+								echo "<li class='buttons2'><a href='#'>Realizar emprestimo de um Smartphone</a></li>";
+								echo "<li class='buttons2'><a href='#'>Realizar emprestimo de um Macbook</a></li>";
+								echo "<li class='buttons2'><a href='#'>Emprestimos ativos</a></li>";
+								echo "<li class='buttons2'><a href='#'>Histórico de emprestimos</a></li>";
+							echo "</ul>";
+						echo "</div>";
 					}
 					else{
-						echo "<h2 align='center'>Adicionar dados Pessoais</h1>";
+						echo "<h2 align='center'>Adicionar dados Pessoais</h2>";
 						$pdo = new PDO('mysql:host=localhost;dbname=locatech;charset=utf8', "root", "");
 						$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 						$consulta = $pdo->prepare("select * from client where usuario_id=".$_SESSION['IdUsuario'].";");
@@ -84,7 +97,14 @@
             else{
 				echo "<div class='Painel' >";
 					echo "<h1>Logado como Administrador!</h1>";
-					echo "<a href=''>Cadastrar Aparelho</a></li>";
+					echo "<div class=''>";
+						echo "<ul>";
+							echo "<li class='buttons2'><a href='cadastro_dispositivo.php?act=CadSmartphone'>Cadastrar Smarthphone</a></li>";
+							echo "<li class='buttons2'><a href='cadastro_dispositivo.php?act=CadMacbook'>Cadastrar Macbook</a></li>";
+							echo "<li class='buttons2'><a href=''>Smarthphones Cadastrados</a></li>";
+							echo "<li class='buttons2'><a href=''>Macbooks Cadastrados</a></li>";
+						echo "</ul>";							
+					echo "<div class=''>";
 				echo "</div>";
 
             }
