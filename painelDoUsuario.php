@@ -80,7 +80,7 @@
 						//Formulario
 						echo "<form action='inserir.php?act=CadClient' method='post'>";
 							echo "<div class=''>CPF: </div>";
-							echo "<div ><input class='' type='text' name='cpf' maxlength='11' required></div>";
+							echo "<div ><input class='' type='number' name='cpf' maxlength='11' required></div>";
 							echo "<div class=''>Nome completo: </div>";
 							echo "<div ><input class='' type='text' name='nome' maxlength='45' required></div>";
 							echo "<div class=''>Endereço: </div>";
@@ -104,7 +104,7 @@
 							echo "<li class='buttons2'><a href=''>Smarthphones Cadastrados</a></li>";
 							echo "<li class='buttons2'><a href=''>Macbooks Cadastrados</a></li>";
 						echo "</ul>";							
-					echo "<div class=''>";
+					echo "</div>";
 				echo "</div>";
 
             }

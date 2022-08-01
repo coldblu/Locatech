@@ -93,6 +93,9 @@ body{
 
 /* Menu Centro */
 .MenuCentro{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 	height:auto;
 	background-color:rgba(252, 248, 248, 0.479);
 	margin-top: 2%;
@@ -195,6 +198,39 @@ body{
 	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 	border-radius: 8px;
 }
+
+.Formulario form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.Formulario form div{
+	font-size: 1.1rem;
+	margin-top: 1rem;
+
+}
+
+.Formulario form input{
+	padding: 0.4rem;
+	background:#dadfe4;
+	border: 2px;
+	border-color: #000;
+	border-radius: 5px;
+	border-style: solid;
+}
+
+.Formulario form input[type="submit"]{
+	margin-top: 2rem;
+	padding: 0.4rem;
+	background:#0091FF;
+}
+
+.Formulario2{
+	display: inline;
+	
+}
+
 /* Painel */
 .Painel{
 	height: auto;
@@ -221,32 +257,7 @@ body{
 .Painel ul{
 
 }
-form{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
 
-form div{
-	font-size: 1.1rem;
-	margin-top: 1rem;
-
-}
-
-form input{
-	padding: 0.4rem;
-	background:#dadfe4;
-	border: 2px;
-	border-color: #000;
-	border-radius: 5px;
-	border-style: solid;
-}
-
-form input[type="submit"]{
-	margin-top: 2rem;
-	padding: 0.4rem;
-	background:#0091FF;
-}
 
 /*Barra de pesquisa */
 .SearchBar{
@@ -255,7 +266,7 @@ form input[type="submit"]{
 }
 
 .SearchBar input{
-	width: 30%;
+	width: 300px;
 	padding: 0.4rem;
 	background:#f3f3f3;
 	border: 2px;
@@ -315,4 +326,9 @@ form input[type="submit"]{
 	background:-webkit-gradient(linear, 87% 51%, 87% 75%, from(#00BEFF), to(#0091FF));/* cor com degradê*/
 	border-radius:8px;
 	transition:all,0.5S;
+}
+
+textarea{
+	resize: none;
+	padding: 1px 3px;
 }

@@ -24,6 +24,30 @@
 		echo "<div align='center'><h1>Cadastro realizado com sucesso!</h1></div>";
 		header( "refresh:3;url=painelDoUsuario.php" );
 	}
+	else if($_GET["act"]=="CadSmartphone" && $_SESSION["TipoUsuario"]==0){
+		$modelo = $_POST["modelo"];
+		$preco =(float) $_POST["preco"];
+		$especificacao = $_POST["especificacao"]; 
+		$conservacao = $_POST["estado"];
+		//Insert
+		$sql = "insert into aparelho (modelo, preco, especificacao, conservacao)  Values(?,?,?,?)";
+		$query = $pdo->prepare($sql);
+		$query->execute(array($modelo,$preco,$especificacao,$conservacao));
+		echo "<div align='center'><h1>Cadastro realizado com sucesso!</h1></div>";
+		header( "refresh:3;url=painelDoUsuario.php" );
+	}
+	else if($_GET["act"]=="CadMacbook"  && $_SESSION["TipoUsuario"]==0){
+		$modelo = $_POST["modelo"];
+		$preco =(float) $_POST["preco"];
+		$especificacao = $_POST["especificacao"]; 
+		$conservacao = $_POST["estado"];
+		//Insert
+		$sql = "insert into aparelho (modelo, preco, especificacao, conservacao)  Values(?,?,?,?)";
+		$query = $pdo->prepare($sql);
+		$query->execute(array($modelo,$preco,$especificacao,$conservacao));
+		echo "<div align='center'><h1>Cadastro realizado com sucesso!</h1></div>";
+		header( "refresh:3;url=painelDoUsuario.php" );
+	}
 	else{
 		echo "<script> window.location='index.php';</script>";
 	}

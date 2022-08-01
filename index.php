@@ -39,16 +39,12 @@
 	<div class='MenuCentro'> <!--Menu Centro-->
 		<ul>
 			<li><a href='#'>Produtos</a></li>
-			<li><a href='#'>Ajuda</a></li>
-			<li><a href='#'>Infos</a></li>
-			<li><a href='#'>Sobre nos</a></li>
-			<li>
-			<form class='SearchBar' action="#">
+			
+		</ul>
+		<form class='SearchBar' action="#">
 				<input type="text" placeholder="Search.." name="search" maxlength="30">
 				<button class='' type="submit">pesquisar</i></button>
-			</form>
-			</li>
-		</ul>
+		</form>
 	</div>
 
 	<div class='Conteudo'>
