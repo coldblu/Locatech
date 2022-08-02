@@ -47,13 +47,21 @@
 		</form>
 	</div>
 
-	<div class='Conteudo'>
-		Produtos Produtos Produtos Produtos Produtos Produtos 
-		Produtos Produtos Produtos Produtos Produtos Produtos 
-		Produtos Produtos Produtos Produtos Produtos Produtos 
-		Produtos Produtos Produtos Produtos Produtos Produtos 
-		Produtos Produtos Produtos Produtos Produtos Produtos 
-		Produtos Produtos Produtos Produtos Produtos Produtos Produtos 
-	</div>
+		<div class='Conteudo'>
+			<h2> Produtos <h2>
+			<section class="Flex">
+			<?php
+				$pdo = new PDO('mysql:host=localhost;dbname=locatech;charset=utf8', "root", "");
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				$sql = "select * from aparelho;";
+				foreach($pdo->query($sql) as $row ){
+					echo "<div class='Produto' >";					
+					echo "<img src='images/default_iphone.jpg'/>";
+					echo "<p><a href='#'>".$row["modelo"]."</a></p>";
+					echo "</div>";
+				}			
+			?>			
+			</section>
+		</div>
 </body>
 </html>

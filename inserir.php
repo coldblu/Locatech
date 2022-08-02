@@ -24,31 +24,21 @@
 		echo "<div align='center'><h1>Cadastro realizado com sucesso!</h1></div>";
 		header( "refresh:3;url=painelDoUsuario.php" );
 	}
-	else if($_GET["act"]=="CadSmartphone" && $_SESSION["TipoUsuario"]==0){
+	else if($_GET["act"]=="CadAparelho" && $_SESSION["TipoUsuario"]==0){
 		$modelo = $_POST["modelo"];
 		$preco =(float) $_POST["preco"];
 		$especificacao = $_POST["especificacao"]; 
 		$conservacao = $_POST["estado"];
+		$tipo = $_POST["tipo"];
 		//Insert
-		$sql = "insert into aparelho (modelo, preco, especificacao, conservacao)  Values(?,?,?,?)";
+		$sql = "insert into aparelho (modelo, preco, especificacao, conservacao, tipo)  Values(?,?,?,?,?)";
 		$query = $pdo->prepare($sql);
-		$query->execute(array($modelo,$preco,$especificacao,$conservacao));
-		echo "<div align='center'><h1>Cadastro realizado com sucesso!</h1></div>";
-		header( "refresh:3;url=painelDoUsuario.php" );
-	}
-	else if($_GET["act"]=="CadMacbook"  && $_SESSION["TipoUsuario"]==0){
-		$modelo = $_POST["modelo"];
-		$preco =(float) $_POST["preco"];
-		$especificacao = $_POST["especificacao"]; 
-		$conservacao = $_POST["estado"];
-		//Insert
-		$sql = "insert into aparelho (modelo, preco, especificacao, conservacao)  Values(?,?,?,?)";
-		$query = $pdo->prepare($sql);
-		$query->execute(array($modelo,$preco,$especificacao,$conservacao));
-		echo "<div align='center'><h1>Cadastro realizado com sucesso!</h1></div>";
+		$query->execute(array($modelo,$preco,$especificacao,$conservacao,$tipo));
+		echo "<div align='center'><h1>Cadastro de aparelho realizado com sucesso!</h1></div>";
 		header( "refresh:3;url=painelDoUsuario.php" );
 	}
 	else{
+		echo "<div align='center'><h1>Nada acontece!</h1></div>";
 		echo "<script> window.location='index.php';</script>";
 	}
 	$pdo = null;

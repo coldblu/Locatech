@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21-Jul-2022 às 18:12
+-- Tempo de geração: 02-Ago-2022 às 21:35
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -32,8 +32,17 @@ CREATE TABLE `aparelho` (
   `modelo` char(45) NOT NULL,
   `especificacao` char(200) NOT NULL,
   `preco` float NOT NULL,
-  `conservacao` int(11) NOT NULL
+  `conservacao` int(11) NOT NULL,
+  `tipo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `aparelho`
+--
+
+INSERT INTO `aparelho` (`id`, `modelo`, `especificacao`, `preco`, `conservacao`, `tipo`) VALUES
+(1, 'iPhone 3G', 'test dos testes', 2133, 2, 0),
+(2, 'iPhone', '3213122', 231, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -54,6 +63,9 @@ CREATE TABLE `client` (
 --
 
 INSERT INTO `client` (`cpf`, `nome`, `endereco`, `nascimento`, `usuario_id`) VALUES
+('12341241251', 'Joao Alvo', 'Rua 0', '2022-07-14', 3),
+('21312312423', 'aaaaa', 'Rua 0', '0000-00-00', 4),
+('312412412', '4421wwq', 'Qualquer rua', '2022-07-12', 6),
 ('3225525585', 'Joao Alvo', 'Rua 0', '1999-02-01', 2),
 ('33333333333', 'Yuri Barbosa', 'Rua 0', '1995-08-30', 1);
 
@@ -64,7 +76,8 @@ INSERT INTO `client` (`cpf`, `nome`, `endereco`, `nascimento`, `usuario_id`) VAL
 --
 
 CREATE TABLE `iphone` (
-  `imei` int(11) NOT NULL
+  `imei` int(11) NOT NULL,
+  `aparelho_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -101,7 +114,12 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id`, `login`, `senha`, `tipo`) VALUES
 (1, 'yuri', '1234', 1),
-(2, 'user1', '1234', 1);
+(2, 'user1', '1234', 1),
+(3, 'jpixel', '1234', 1),
+(4, 'bobo', '1234', 1),
+(5, 'unchain', '1234', 1),
+(6, 'joao', '1234', 1),
+(7, 'admin', '1234', 0);
 
 --
 -- Índices para tabelas despejadas
@@ -127,7 +145,8 @@ ALTER TABLE `client`
 --
 ALTER TABLE `iphone`
   ADD PRIMARY KEY (`imei`),
-  ADD UNIQUE KEY `imei` (`imei`);
+  ADD UNIQUE KEY `imei` (`imei`),
+  ADD KEY `id_fk_aparelho` (`aparelho_id`);
 
 --
 -- Índices para tabela `locar`
@@ -152,13 +171,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `aparelho`
 --
 ALTER TABLE `aparelho`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restrições para despejos de tabelas
@@ -169,6 +188,12 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `client`
   ADD CONSTRAINT `client_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`);
+
+--
+-- Limitadores para a tabela `iphone`
+--
+ALTER TABLE `iphone`
+  ADD CONSTRAINT `id_fk_aparelho` FOREIGN KEY (`aparelho_id`) REFERENCES `aparelho` (`id`);
 
 --
 -- Limitadores para a tabela `locar`

@@ -32,7 +32,8 @@
 					echo "<h1>Cadastro de dispositovo</h1>";
 					if($_GET["act"]=="CadSmartphone"){
 						echo "<div class='Formulario2'>";
-							echo "<form action='inserir.php?act=CadSmartphone' method='post'>";
+							echo "<form action='inserir.php?act=CadAparelho' method='post'>";
+									echo "<div><input type='hidden' type='number' id='tipo' name='tipo' value='1' required></td>";//Valor 1 - Representa tipo Smartphone
 									echo "<div class=''>Modelo: </div>";//SELECT
 									echo "<div >";
 										echo "<select id='modelo' name='modelo' required>";
@@ -93,7 +94,8 @@
 					}
 					else if($_GET["act"]=="CadMacbook"){
 						echo "<div class='Formulario2'>";
-							echo "<form action='inserir.php?act=CadMacbook' method='post'>";
+							echo "<form action='inserir.php?act=CadAparelho' method='post'>";
+								echo "<div><input type='hidden' type='number' id='tipo' name='tipo' value='2' required></td>";//Valor 2 - Representa tipo Macbook
 								echo "<div class=''>Modelo: </div>";//SELECT
 								echo "<div >";
 									echo "<select id='modelo' name='modelo' required>";
