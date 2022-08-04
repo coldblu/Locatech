@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Paginal Inicial</title>
+	<title>Detalhes do Produto</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 	<meta name="author" content=""/>
 	<meta name="description" content="Locatech - Sistema de locação de dispositivos IOS."/>
@@ -43,29 +43,39 @@
 		</ul>
 		<form class='SearchBar' action="#">
 				<input type="text" placeholder="Search.." name="search" maxlength="30">
-				<button class='' type="submit"><img class="icone" src="images/lupa.png" width="50" height="50" /></i></button>
+				<button class='' type="submit">pesquisar</i></button>
 		</form>
 	</div>
 
 		<div class='Conteudo'>
-			<h1> Produtos <h1>
-			<section class="Flex">
 			<?php
+				$id = $_POST['id'];
 				$pdo = new PDO('mysql:host=localhost;dbname=locatech;charset=utf8', "root", "");
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$sql = "select * from aparelho ;";
-				foreach($pdo->query($sql) as $row ){
-					echo "<div class='Produto' >";					
-					echo "<img src='images/default_iphone.jpg'/>";	
-					echo "<form action='produto_detalhes.php' method='post'>";
-							echo "<input type='hidden' type='number' id='id' name='id' value='".$row["id"]."' required>";//Valor 2 - Representa tipo Macbook								
-							echo "<input type='hidden' type='number' id='tipo' name='tipo' value='".$row["tipo"]."' required>";
-							echo "<input class='buttons' type='submit' value='".$row["modelo"]."'>";
-							echo "</form>";
-					echo "</div>";
-				}			
+				$sql = "select * from aparelho where id='".$id.";";			
 			?>			
-			</section>
+			<h2> Detalhes do Produto <h2>
+			<div >
+				<img src=" " />
+			</div>
+			
+			<div >
+				Nome:
+			</div>
+			
+			<div >
+				Especificação:
+			</div>
+			
+			<div >
+				Estado de conservação:
+			</div>
+			
+			<div >
+				Preço:
+			</div>
+			
+			
 		</div>
 </body>
 </html>

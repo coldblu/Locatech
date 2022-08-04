@@ -95,7 +95,7 @@
 					else if($_GET["act"]=="CadMacbook"){
 						echo "<div class='Formulario2'>";
 							echo "<form action='inserir.php?act=CadAparelho' method='post'>";
-								echo "<div><input type='hidden' type='number' id='tipo' name='tipo' value='2' required></td>";//Valor 2 - Representa tipo Macbook
+								echo "<div><input type='hidden' type='number' id='tipo' name='tipo' value='2' required></div>";//Valor 2 - Representa tipo Macbook
 								echo "<div class=''>Modelo: </div>";//SELECT
 								echo "<div >";
 									echo "<select id='modelo' name='modelo' required>";
