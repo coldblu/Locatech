@@ -28,23 +28,32 @@
 	<div >
 		<?php
             if($_SESSION["TipoUsuario"]==1){
-                $pdo = new PDO('mysql:host=localhost;dbname=locatech;charset=utf8', "root", "");
-                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$consulta = $pdo->prepare("select * from aparelho inner join imei;");
-                $sql = "select * from client where usuario_id=".$_SESSION['IdUsuario'].";";
-                $consulta->execute();
-                $check = $consulta->fetch(PDO::FETCH_ASSOC);
-				echo "<div class='Painel'>";
-				echo "<h1 align='center' >Alugar aparelho</h1>";
-					if($_GET["act"]=="Smartphone"){
-						$consulta = $pdo->prepare("select * from aparelho inner join imei where ;");
-						$consulta->execute();
-						$check = $consulta->fetch(PDO::FETCH_ASSOC);
-					}
-					else if($_GET["act"]=="MacBook"){
-						
-					}
-                echo "</div>";
+				date_default_timezone_set('America/Sao_Paulo');
+				$id = $_POST['id'];
+				$hoje = date("Y-m-d");
+				echo "<form action='inserir.php?act=LocaAparelho' method='post'>";
+					echo "<div class=''>Forma de Pagamento: </div>";
+						echo "<div >";
+							echo "<select id='pagamento' name='pagamento' required>";
+								echo "<option value='Avista'> Avista </option>";
+								echo "<option value='Debito'> Debito </option>";
+								echo "<option value='Credito'> Credito </option>";			
+							echo "</select>";
+						echo "</div>";	
+					echo "<div class=''>Plano: </div>";//Select
+					echo "<div >";
+							echo "<select id='plano' name='plano' required>";
+								echo "<option value='1'> 6 meses </option>";
+								echo "<option value='2'> 12 meses </option>";
+								echo "<option value='3'> 24 meses </option>";			
+							echo "</select>";
+						echo "</div>";
+					echo "<div class=''>Data de Inicio da locação: </div>";
+					echo "<div ><input class='' type='date' name='date' value='".$hoje."' required></div>";
+					echo "<div><input type='hidden' type='number' id='id' name='id' value='".$id."' required></td>";
+					
+					echo "<input class='buttons' type='submit' value='Alugar'>";
+				echo "</form>";
             }
             else{
 				echo"<script> window.location='painelDoUsuario.php';</script>";

@@ -103,6 +103,7 @@
 										echo "<option value='MacBook Air'> MacBook Air </option>";
 										echo "<option value='MacBook Pro'> MacBook Pro </option>";			
 									echo "</select>";
+								echo "</div>";	
 								echo "<div class=''>Estado de Conservação: </div>";//SELECT
 								echo "<div >";
 									echo "<select id='estado' name='estado' required>";
@@ -132,6 +133,8 @@
             else{
 				echo"<script> window.location='painelDoUsuario.php';</script>";
             }
+
+		
         ?>
     </div>
 </body>

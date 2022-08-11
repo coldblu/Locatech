@@ -42,38 +42,56 @@
 			
 		</ul>
 		<form class='SearchBar' action="#">
-				<input type="text" placeholder="Search.." name="search" maxlength="30">
+				<input type="text" placeholder="Produto..." name="search" maxlength="30">
 				<button class='' type="submit">pesquisar</i></button>
 		</form>
 	</div>
 
 		<div class='Conteudo'>
+			<h2> Detalhes do Produto <h2>
 			<?php
+				date_default_timezone_set('America/Sao_Paulo');
 				$id = $_POST['id'];
+				$hoje = date("Y-m-d");
 				$pdo = new PDO('mysql:host=localhost;dbname=locatech;charset=utf8', "root", "");
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$sql = "select * from aparelho where id='".$id.";";			
+				$consulta = $pdo->prepare("select * from aparelho left join locar on id_aparelho= id where id='".$id."';");
+                $consulta->execute();
+                $linha = $consulta->fetch(PDO::FETCH_ASSOC);
+				
+				
+				echo "<div >";
+					echo "<img src=' ' />";
+				echo "</div>";
+				
+				echo "<div >";
+					echo "Modelo: ".$linha["modelo"];
+				echo "</div>";
+				
+				echo "<div >";
+					echo "Especificação: ".$linha["especificacao"];
+				echo "</div>";
+				
+				echo "<div >";
+					echo "Estado de conservação: ".$linha["conservacao"];
+				echo "</div>";
+				
+				echo "<div >";
+					echo "Preço: ".$linha["preco"];
+				echo "</div>";
+				//Validação se o produto está disponível
+				if($linha['dataInicio'] != NULL || $linha['dataFim'] < $hoje ||$linha['dataFim'] != NULL){
+					echo "<form action='alugar_aparelho.php' method='post'>";
+						echo "<input type='hidden' type='number' id='id' name='id' value='".$linha["id"]."' required>";
+						echo "<input class='buttons' type='submit' value='Alugar'>";
+					echo "</form>";
+				}
+				else{
+					echo "<h3>Produto Indisponível!</h3>";
+				}
+				
 			?>			
-			<h2> Detalhes do Produto <h2>
-			<div >
-				<img src=" " />
-			</div>
 			
-			<div >
-				Nome:
-			</div>
-			
-			<div >
-				Especificação:
-			</div>
-			
-			<div >
-				Estado de conservação:
-			</div>
-			
-			<div >
-				Preço:
-			</div>
 			
 			
 		</div>

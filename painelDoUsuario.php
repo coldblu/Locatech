@@ -14,7 +14,13 @@
     <div class="MenuContaTop"><!--Menu top -->
 		<?php
 			if(isset($_SESSION["ConectedLT"])){
-				echo"<ul align='right'>";				
+				echo"<ul >";				
+				
+				echo"</ul>";
+				
+				
+				echo"<ul align='right'>";	
+				echo"<li><a class='buttons2' href='index.php' >Pagina Inicial</a></li>";				
 				echo"<li>Usuario:  <a href='painelDoUsuario.php'> ".$_SESSION["Login"]."</a></li>";
 				echo"<li><a href='validacao.php?act=logout'>Desconectar</a></li>";
 				echo"</ul>";
@@ -36,7 +42,8 @@
                 $check = $consulta->fetch(PDO::FETCH_ASSOC);
 				echo "<div class='Painel'>";
 				echo "<h1 align='center' >Painel do usuário</h1>";
-					if(isset($check["cpf"])){     
+					if(isset($check["cpf"])){ 
+						$_SESSION["cpf"] = $check["cpf"];
 						echo "<div >";
 							echo "<h2 align='center'>Dados cadastrais</h2>";
 							echo "<table class=''>";                   
@@ -65,8 +72,6 @@
 						echo "<div >";
 							echo "<h2 align='center'>Menu de opções</h2>";
 							echo "<ul>";
-								echo "<li class='buttons2'><a href='#'>Realizar emprestimo de um Smartphone</a></li>";
-								echo "<li class='buttons2'><a href='#'>Realizar emprestimo de um Macbook</a></li>";
 								echo "<li class='buttons2'><a href='#'>Emprestimos ativos</a></li>";
 								echo "<li class='buttons2'><a href='#'>Histórico de emprestimos</a></li>";
 							echo "</ul>";
@@ -74,9 +79,6 @@
 					}
 					else{
 						echo "<h2 align='center'>Adicionar dados Pessoais</h2>";
-						$pdo = new PDO('mysql:host=localhost;dbname=locatech;charset=utf8', "root", "");
-						$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-						$consulta = $pdo->prepare("select * from client where usuario_id=".$_SESSION['IdUsuario'].";");
 						//Formulario
 						echo "<form action='inserir.php?act=CadClient' method='post'>";
 							echo "<div class=''>CPF: </div>";

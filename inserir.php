@@ -37,6 +37,19 @@
 		echo "<div align='center'><h1>Cadastro de aparelho realizado com sucesso!</h1></div>";
 		header( "refresh:3;url=painelDoUsuario.php" );
 	}
+	else if($_GET["act"]=="LocaAparelho" && $_SESSION["TipoUsuario"]==1){
+		$idProduto = $_POST["id"];
+		$dataInicio = $_POST["date"];
+		$formaPagamento = $_POST["pagamento"];
+		$plano = $_POST["plano"];
+		$cpfUsuario = $_SESSION["cpf"];
+		//Insert
+		$sql = "insert into locar (formaPagament, dataInicio, plano, cpf_cliente , id_aparelho)  Values(?,?,?,?,?)";
+		$query = $pdo->prepare($sql);
+		$query->execute(array($formaPagamento,$dataInicio,$plano,$cpfUsuario,$idProduto));
+		echo "<div align='center'><h1>Locação feita com sucesso!</h1></div>";
+		header( "refresh:3;url=painelDoUsuario.php" );
+	}
 	else{
 		echo "<div align='center'><h1>Nada acontece!</h1></div>";
 		echo "<script> window.location='index.php';</script>";

@@ -42,7 +42,7 @@
 			
 		</ul>
 		<form class='SearchBar' action="#">
-				<input type="text" placeholder="Search.." name="search" maxlength="30">
+				<input type="text" placeholder="Produto..." name="search" maxlength="30">
 				<button class='' type="submit"><img class="icone" src="images/lupa.png" width="50" height="50" /></i></button>
 		</form>
 	</div>
@@ -61,7 +61,7 @@
 							echo "<input type='hidden' type='number' id='id' name='id' value='".$row["id"]."' required>";//Valor 2 - Representa tipo Macbook								
 							echo "<input type='hidden' type='number' id='tipo' name='tipo' value='".$row["tipo"]."' required>";
 							echo "<input class='buttons' type='submit' value='".$row["modelo"]."'>";
-							echo "</form>";
+					echo "</form>";
 					echo "</div>";
 				}			
 			?>			
