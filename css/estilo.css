@@ -209,7 +209,7 @@ body{
 }
 
 
-.Produto p, form{
+.Produto form{
 	display: grid;
 	background-color: rgba(0, 0, 0, 0.7);
 	color: #FFF;

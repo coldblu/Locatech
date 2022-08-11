@@ -57,11 +57,13 @@
 				foreach($pdo->query($sql) as $row ){
 					echo "<div class='Produto' >";					
 					echo "<img src='images/default_iphone.jpg'/>";	
-					echo "<form action='produto_detalhes.php' method='post'>";
-							echo "<input type='hidden' type='number' id='id' name='id' value='".$row["id"]."' required>";//Valor 2 - Representa tipo Macbook								
-							echo "<input type='hidden' type='number' id='tipo' name='tipo' value='".$row["tipo"]."' required>";
-							echo "<input class='buttons' type='submit' value='".$row["modelo"]."'>";
-					echo "</form>";
+					echo "<p>";
+						echo "<form action='produto_detalhes.php' method='post'>";
+								echo "<input type='hidden' type='number' id='id' name='id' value='".$row["id"]."' required>";//Valor 2 - Representa tipo Macbook								
+								echo "<input type='hidden' type='number' id='tipo' name='tipo' value='".$row["tipo"]."' required>";
+								echo "<input class='buttons' type='submit' value='".$row["modelo"]."'>";
+						echo "</form>";
+					echo "</p>";						
 					echo "</div>";
 				}			
 			?>			
