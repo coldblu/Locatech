@@ -14,7 +14,8 @@
     <div class="MenuContaTop"><!--Menu top -->
 		<?php
 			if(isset($_SESSION["ConectedLT"])){
-				echo"<ul align='right'>";				
+				echo"<ul align='right'>";			
+				echo"<li><a class='buttons2' href='index.php' >Pagina Inicial</a></li>";
 				echo"<li>Usuario:  <a href='painelDoUsuario.php'> ".$_SESSION["Login"]."</a></li>";
 				echo"<li><a href='validacao.php?act=logout'>Desconectar</a></li>";
 				echo"</ul>";
@@ -31,29 +32,31 @@
 				date_default_timezone_set('America/Sao_Paulo');
 				$id = $_POST['id'];
 				$hoje = date("Y-m-d");
-				echo "<form action='inserir.php?act=LocaAparelho' method='post'>";
-					echo "<div class=''>Forma de Pagamento: </div>";
+				echo "<div class='Painel'>";
+					echo "<form action='inserir.php?act=LocaAparelho' method='post'>";
+						echo "<div class=''>Forma de Pagamento: </div>";
+							echo "<div >";
+								echo "<select id='pagamento' name='pagamento' required>";
+									echo "<option value='Avista'> Avista </option>";
+									echo "<option value='Debito'> Debito </option>";
+									echo "<option value='Credito'> Credito </option>";			
+								echo "</select>";
+							echo "</div>";	
+						echo "<div class=''>Plano: </div>";//Select
 						echo "<div >";
-							echo "<select id='pagamento' name='pagamento' required>";
-								echo "<option value='Avista'> Avista </option>";
-								echo "<option value='Debito'> Debito </option>";
-								echo "<option value='Credito'> Credito </option>";			
-							echo "</select>";
-						echo "</div>";	
-					echo "<div class=''>Plano: </div>";//Select
-					echo "<div >";
-							echo "<select id='plano' name='plano' required>";
-								echo "<option value='1'> 6 meses </option>";
-								echo "<option value='2'> 12 meses </option>";
-								echo "<option value='3'> 24 meses </option>";			
-							echo "</select>";
-						echo "</div>";
-					echo "<div class=''>Data de Inicio da locação: </div>";
-					echo "<div ><input class='' type='date' name='date' value='".$hoje."' required></div>";
-					echo "<div><input type='hidden' type='number' id='id' name='id' value='".$id."' required></td>";
-					
-					echo "<input class='buttons' type='submit' value='Alugar'>";
-				echo "</form>";
+								echo "<select id='plano' name='plano' required>";
+									echo "<option value='1'> 6 meses </option>";
+									echo "<option value='2'> 12 meses </option>";
+									echo "<option value='3'> 24 meses </option>";			
+								echo "</select>";
+							echo "</div>";
+						echo "<div class=''>Data de Inicio da locação: </div>";
+						echo "<div ><input class='myinput' type='date' name='date' value='".$hoje."' required></div>";
+						echo "<div><input type='hidden' type='number' id='id' name='id' value='".$id."' required></td>";
+						
+						echo "<input class='buttons' type='submit' value='Alugar'>";
+					echo "</form>";
+				echo "</div>";
             }
             else{
 				echo"<script> window.location='painelDoUsuario.php';</script>";

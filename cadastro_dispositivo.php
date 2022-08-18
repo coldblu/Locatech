@@ -14,7 +14,8 @@
     <div class="MenuContaTop"><!--Menu top -->
 		<?php
 			if(isset($_SESSION["ConectedLT"])){
-				echo"<ul align='right'>";				
+				echo"<ul align='right'>";	
+				echo"<li><a class='buttons2' href='index.php' >Pagina Inicial</a></li>";
 				echo"<li>Usuario:  <a href='painelDoUsuario.php'> ".$_SESSION["Login"]."</a></li>";
 				echo"<li><a href='validacao.php?act=logout'>Desconectar</a></li>";
 				echo"</ul>";
@@ -85,7 +86,7 @@
 										echo "</select>";
 									echo "</div>";
 									echo "<div class=''>Preço(R$): </div>";
-									echo "<div ><input class='' type='text' name='preco' maxlength='10' required></div>";
+									echo "<div ><input class='myinput' type='text' name='preco' maxlength='10' required></div>";
 									echo "<div class=''>Especificação:: </div>";//TEXTFIELD
 									echo "<div ><textarea cols='40' rows='5' id='especificacao' name='especificacao' maxlength='200' required></textarea></div>";
 									echo "<input class='buttons' type='submit' value='Cadastrar'>";
@@ -115,7 +116,7 @@
 									echo "</select>";
 								echo "</div>";
 								echo "<div class=''>Preço(R$): </div>";
-								echo "<div ><input class='' type='text' name='preco' maxlength='10' required></div>";
+								echo "<div ><input class='myinput' type='text' name='preco' maxlength='10' required></div>";
 								echo "<div class=''>Especificação: </div>";//TEXTFIELD
 								echo "<div ><textarea cols='40' rows='5' id='especificacao' name='especificacao' maxlength='200' required></textarea></div>";
 								echo "<input class='buttons' type='submit' value='Cadastrar'>";

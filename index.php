@@ -18,13 +18,15 @@
     <div class="MenuContaTop"><!--Menu Superior-->
 		<?php
 			if(isset($_SESSION["ConectedLT"])){
-				echo"<ul align='right'>";				
+				echo"<ul align='right'>";	
+				echo"<li><a class='buttons2' href='index.php' >Pagina Inicial</a></li>";
 				echo"<li>Usuario:  <a href='painelDoUsuario.php'> ".$_SESSION["Login"]."</a></li>";
 				echo"<li><a href='validacao.php?act=logout'>Desconectar</a></li>";
 				echo"</ul>";
 			}
 			else{
-				echo"<ul align='right'>";				
+				echo"<ul align='right'>";	
+				echo"<li><a class='buttons2' href='index.php' >Pagina Inicial</a></li>";
 				echo"<li><a href='login.php'>Login</a></li>";
 				echo"<li><a href='cadastro.php'>Cadastro</a></li>";
 				echo"</ul>";
@@ -41,10 +43,12 @@
 			<li><a href='#'>Produtos</a></li>
 			
 		</ul>
+		<!--
 		<form class='SearchBar' action="#">
 				<input type="text" placeholder="Produto..." name="search" maxlength="30">
-				<button class='' type="submit"><img class="icone" src="images/lupa.png" width="50" height="50" /></i></button>
+				<button class='' type="submit">Pesquisa<img class="icone" src="#" width="50" height="50" /></i></button>
 		</form>
+		-->
 	</div>
 
 		<div class='Conteudo'>
@@ -55,13 +59,18 @@
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				$sql = "select * from aparelho ;";
 				foreach($pdo->query($sql) as $row ){
-					echo "<div class='Produto' >";					
-					echo "<img src='images/default_iphone.jpg'/>";	
+					echo "<div class='Produto' >";
+					if($row["tipo"] == 1){
+						echo "<img src='images/default_iphone.jpg' />";
+					}
+					else if($row["tipo"] == 2){
+						echo "<img src='images/default_macbook.png' />";
+					}	
 					echo "<p>";
 						echo "<form action='produto_detalhes.php' method='post'>";
 								echo "<input type='hidden' type='number' id='id' name='id' value='".$row["id"]."' required>";//Valor 2 - Representa tipo Macbook								
 								echo "<input type='hidden' type='number' id='tipo' name='tipo' value='".$row["tipo"]."' required>";
-								echo "<input class='buttons' type='submit' value='".$row["modelo"]."'>";
+								echo "<input class='buttonsZ' type='submit' value='".$row["modelo"]."'>";
 						echo "</form>";
 					echo "</p>";						
 					echo "</div>";

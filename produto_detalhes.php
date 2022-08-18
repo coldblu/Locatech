@@ -18,13 +18,15 @@
     <div class="MenuContaTop"><!--Menu Superior-->
 		<?php
 			if(isset($_SESSION["ConectedLT"])){
-				echo"<ul align='right'>";				
+				echo"<ul align='right'>";	
+				echo"<li><a class='buttons2' href='index.php' >Pagina Inicial</a></li>";
 				echo"<li>Usuario:  <a href='painelDoUsuario.php'> ".$_SESSION["Login"]."</a></li>";
 				echo"<li><a href='validacao.php?act=logout'>Desconectar</a></li>";
 				echo"</ul>";
 			}
 			else{
-				echo"<ul align='right'>";				
+				echo"<ul align='right'>";	
+				echo"<li><a class='buttons2' href='index.php' >Pagina Inicial</a></li>";
 				echo"<li><a href='login.php'>Login</a></li>";
 				echo"<li><a href='cadastro.php'>Cadastro</a></li>";
 				echo"</ul>";
@@ -41,10 +43,12 @@
 			<li><a href='#'>Produtos</a></li>
 			
 		</ul>
+		<!--
 		<form class='SearchBar' action="#">
 				<input type="text" placeholder="Produto..." name="search" maxlength="30">
 				<button class='' type="submit">pesquisar</i></button>
 		</form>
+		-->
 	</div>
 
 		<div class='Conteudo'>
@@ -55,32 +59,54 @@
 				$hoje = date("Y-m-d");
 				$pdo = new PDO('mysql:host=localhost;dbname=locatech;charset=utf8', "root", "");
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$consulta = $pdo->prepare("select * from aparelho left join locar on id_aparelho= id where id='".$id."';");
+				$consulta = $pdo->prepare("select * from aparelho left join locar on  id=id_aparelho where id='".$id."';");
                 $consulta->execute();
                 $linha = $consulta->fetch(PDO::FETCH_ASSOC);
-				
-				
+				//-------------------
 				echo "<div >";
-					echo "<img src=' ' />";
+					if($linha["tipo"] == 1){
+						echo "<img src='images/default_iphone.jpg' />";
+					}
+					else if($linha["tipo"] == 2){
+						echo "<img src='images/default_macbook.png' />";
+					}					
 				echo "</div>";
+				echo "<table class='mytable'>";
+					echo "<tr>";
+						echo "<td class='mytd'>Modelo: </td>";
+						echo "<td class='mytd'>".$linha["modelo"]." </td>";
+					echo "</tr>";
+					echo "<tr>";
+						echo "<td class='mytd'> Especificação: </td>";
+						echo "<td class='mytd'>".$linha["especificacao"]." </td>";
+					echo "</tr>";
+					echo "<tr>";
+						echo "<td class='mytd'>Estado de conservação: </td>";
+						echo "<td class='mytd'> ".$linha["conservacao"]." </td>";
+					echo "</tr>";
+					echo "<tr>";
+						echo "<td class='mytd'>Preço: </td>";
+						echo "<td class='mytd'>".$linha["preco"]." </td>";
+					echo "</tr>";
+					
+				echo "</table>";
 				
-				echo "<div >";
-					echo "Modelo: ".$linha["modelo"];
-				echo "</div>";
 				
-				echo "<div >";
-					echo "Especificação: ".$linha["especificacao"];
-				echo "</div>";
+				//-------------------
 				
-				echo "<div >";
-					echo "Estado de conservação: ".$linha["conservacao"];
-				echo "</div>";
-				
-				echo "<div >";
-					echo "Preço: ".$linha["preco"];
-				echo "</div>";
 				//Validação se o produto está disponível
-				if($linha['dataInicio'] != NULL || $linha['dataFim'] < $hoje ||$linha['dataFim'] != NULL){
+				$consulta2 = $pdo->prepare("select COUNT(dataInicio) from aparelho left join locar on  id = id_aparelho where id='".$id."';");
+                $consulta2->execute();
+                $checker = $consulta2->fetch(PDO::FETCH_ASSOC);
+				//Verificar os produtos com locação finalizada
+				$sql = "select * from aparelho left join locar on  id = id_aparelho where id='".$id."';";
+				$checktwo = 0;
+				foreach($pdo->query($sql) as $row){
+				if(($row["dataInicio"] != NULL) && ($row["dataFim"] == NULL)){
+						$checktwo++;
+					}
+				}
+				if($checker == 0 || $checktwo == 0){
 					echo "<form action='alugar_aparelho.php' method='post'>";
 						echo "<input type='hidden' type='number' id='id' name='id' value='".$linha["id"]."' required>";
 						echo "<input class='buttons' type='submit' value='Alugar'>";
