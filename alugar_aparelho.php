@@ -33,7 +33,7 @@
 				$id = $_POST['id'];
 				$hoje = date("Y-m-d");
 				echo "<div class='Painel'>";
-					echo "<form action='inserir.php?act=LocaAparelho' method='post'>";
+					echo "<form class='*' action='inserir.php?act=LocaAparelho' method='post'>";
 						echo "<div class=''>Forma de Pagamento: </div>";
 							echo "<div >";
 								echo "<select id='pagamento' name='pagamento' required>";

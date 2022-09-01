@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 02-Ago-2022 às 21:35
+-- Tempo de geração: 01-Set-2022 às 20:59
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -41,8 +41,8 @@ CREATE TABLE `aparelho` (
 --
 
 INSERT INTO `aparelho` (`id`, `modelo`, `especificacao`, `preco`, `conservacao`, `tipo`) VALUES
-(1, 'iPhone 3G', 'test dos testes', 2133, 2, 0),
-(2, 'iPhone', '3213122', 231, 3, 1);
+(1, 'iPhone 3G', 'test dos testes', 2133, 2, 1),
+(3, 'MacBook', '41412321', 23131, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -92,8 +92,17 @@ CREATE TABLE `locar` (
   `dataFim` date DEFAULT NULL,
   `plano` int(11) NOT NULL,
   `cpf_cliente` char(11) NOT NULL,
-  `id_aparelho` int(11) NOT NULL
+  `id_aparelho` int(11) NOT NULL,
+  `codigo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `locar`
+--
+
+INSERT INTO `locar` (`formaPagament`, `dataInicio`, `dataFim`, `plano`, `cpf_cliente`, `id_aparelho`, `codigo`) VALUES
+('Avista', '2022-09-01', '2022-09-01', 1, '33333333333', 1, 1),
+('Avista', '2022-09-01', NULL, 1, '33333333333', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -152,6 +161,7 @@ ALTER TABLE `iphone`
 -- Índices para tabela `locar`
 --
 ALTER TABLE `locar`
+  ADD PRIMARY KEY (`codigo`),
   ADD KEY `cpf_cliente` (`cpf_cliente`),
   ADD KEY `id_aparelho` (`id_aparelho`);
 
@@ -171,7 +181,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `aparelho`
 --
 ALTER TABLE `aparelho`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de tabela `locar`
+--
+ALTER TABLE `locar`
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`

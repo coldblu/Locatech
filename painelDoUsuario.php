@@ -33,9 +33,9 @@
 	</div>
 	<div >
 		<?php
+		$pdo = new PDO('mysql:host=localhost;dbname=locatech;charset=utf8', "root", "");
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             if($_SESSION["TipoUsuario"]==1){
-                $pdo = new PDO('mysql:host=localhost;dbname=locatech;charset=utf8', "root", "");
-                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				$consulta = $pdo->prepare("select * from client where usuario_id=".$_SESSION['IdUsuario'].";");
                 $sql = "select * from client where usuario_id=".$_SESSION['IdUsuario'].";";
                 $consulta->execute();
@@ -72,8 +72,8 @@
 						echo "<div >";
 							echo "<h2 align='center'>Menu de opções</h2>";
 							echo "<ul>";
-								echo "<li class='buttons2'><a href='#'>Emprestimos ativos</a></li>";
-								echo "<li class='buttons2'><a href='#'>Histórico de emprestimos</a></li>";
+								echo "<li class='buttons2'><a href='listar.php?act=EmpAtivos'>Emprestimos ativos</a></li>";
+								echo "<li class='buttons2'><a href='listar.php?act=EmpFinalizados'>Histórico de emprestimos</a></li>";
 							echo "</ul>";
 						echo "</div>";
 					}
@@ -103,8 +103,9 @@
 						echo "<ul>";
 							echo "<li class='buttons2'><a href='cadastro_dispositivo.php?act=CadSmartphone'>Cadastrar Smarthphone</a></li>";
 							echo "<li class='buttons2'><a href='cadastro_dispositivo.php?act=CadMacbook'>Cadastrar Macbook</a></li>";
-							echo "<li class='buttons2'><a href=''>Smarthphones Cadastrados</a></li>";
-							echo "<li class='buttons2'><a href=''>Macbooks Cadastrados</a></li>";
+							echo "<li class='buttons2'><a href='listar.php?act=Locados'>Aparelhos locados</a></li>";
+							echo "<li class='buttons2'><a href='listar.php?act=IPhone'>Iphones Cadastrados</a></li>";
+							echo "<li class='buttons2'><a href='listar.php?act=MacBook'>MacBooks Cadastrados</a></li>";
 						echo "</ul>";							
 					echo "</div>";
 				echo "</div>";

@@ -29,7 +29,7 @@
 	<div >
 		<?php
             if($_SESSION["TipoUsuario"]==0){
-				echo "<div class='' >";
+				echo "<div class='Painel' >";
 					echo "<h1>Cadastro de dispositovo</h1>";
 					if($_GET["act"]=="CadSmartphone"){
 						echo "<div class='Formulario2'>";
