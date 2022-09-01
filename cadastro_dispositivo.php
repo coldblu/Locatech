@@ -30,8 +30,9 @@
 		<?php
             if($_SESSION["TipoUsuario"]==0){
 				echo "<div class='Painel' >";
-					echo "<h1>Cadastro de dispositovo</h1>";
+					
 					if($_GET["act"]=="CadSmartphone"){
+						echo "<h1>Cadastro de Smartphone</h1>";
 						echo "<div class='Formulario2'>";
 							echo "<form action='inserir.php?act=CadAparelho' method='post'>";
 									echo "<div><input type='hidden' type='number' id='tipo' name='tipo' value='1' required></td>";//Valor 1 - Representa tipo Smartphone
@@ -94,6 +95,7 @@
 						echo "</div>";
 					}
 					else if($_GET["act"]=="CadMacbook"){
+						echo "<h1>Cadastro de MacBook</h1>";
 						echo "<div class='Formulario2'>";
 							echo "<form action='inserir.php?act=CadAparelho' method='post'>";
 								echo "<div><input type='hidden' type='number' id='tipo' name='tipo' value='2' required></div>";//Valor 2 - Representa tipo Macbook
@@ -125,6 +127,17 @@
 				echo "</div>";
 				
 				}
+				else if($_GET["act"]=="IMEI"){
+					$id = $_POST["id"];
+					echo "<h1>Cadastro de IMEI do Smartphone</h1>";
+					echo "<form action='inserir.php?act=CadIMEI' method='post'>";
+						echo "<div > ID produto: ".$id."</div>";
+						echo "<input type='hidden' type='number' id='id' name='id' value='".$id."' >";
+						echo "<div class=''>IMEI </div>";
+						echo "<div ><input class='' type='text' id='imei' name='imei' maxlength='10' required></div>";
+						echo "<input class='buttons' type='submit' value='Cadastrar'>";
+					echo "</form>";
+				}	
 				else{
 					echo"<script> window.location='painelDoUsuario.php';</script>";
 				}

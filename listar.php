@@ -148,7 +148,7 @@
 										echo "<td class='mytd'>".$row["preco"]."</td>";
 										//Atualizar
 										if($row["imei"] == NULL){
-										echo "<form action='atualizar.php?act=Finalizar' method='post'>";
+										echo "<form action='cadastro_dispositivo.php?act=IMEI' method='post'>";
 											echo "<input type='hidden' type='number' id='id' name='id' value='".$row["id"]."' >";
 											echo "<td class='mytd' align='center'><input class='buttons' type='submit' value='Cadastrar IMEI'></td>";	
 										echo "</form>";

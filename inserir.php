@@ -37,6 +37,16 @@
 		echo "<div align='center'><h1>Cadastro de aparelho realizado com sucesso!</h1></div>";
 		header( "refresh:3;url=painelDoUsuario.php" );
 	}
+	else if($_GET["act"]=="CadIMEI" && $_SESSION["TipoUsuario"]==0){
+		$imei = $_POST["imei"];
+		$id = $_POST["id"];
+		//Insert
+		$sql = "insert into iphone (imei, aparelho_id)  Values(?,?)";
+		$query = $pdo->prepare($sql);
+		$query->execute(array($imei,$id));
+		echo "<div align='center'><h1>Cadastro do IMEI do aparelho realizado com sucesso!</h1></div>";
+		header( "refresh:3;url=painelDoUsuario.php" );
+	}
 	else if($_GET["act"]=="LocaAparelho" && $_SESSION["TipoUsuario"]==1){
 		$idProduto = $_POST["id"];
 		$dataInicio = $_POST["date"];
