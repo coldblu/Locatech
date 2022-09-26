@@ -10,18 +10,24 @@
 		header( "refresh:3;url=painelDoUsuario.php" );
 	}
 	else if($_GET["act"]=="RemoveIPhone"){
-		if(isset($_POST["imei"]){
+		if(isset($_POST["imei"])){
 			$imei = $_POST["imei"];
 			$sql = "delete from iphone where imei = ?";		
 			$query = $pdo->prepare($sql);
 			$query->execute(array($imei));
+			//Deleta o aparelho$id = $_POST["id"];
+			$sql = "delete from aparelho where id = ?";		
+			$query = $pdo->prepare($sql);
+			$query->execute(array($id));
+			echo "<div align='center'><h1>Aparelho removido com sucesso!</h1></div>";
+			header( "refresh:3;url=painelDoUsuario.php" );
 		}
-		$id = $_POST["id"];
-		$sql = "delete from aparelho where id = ?";		
-		$query = $pdo->prepare($sql);
-		$query->execute(array($id));
-		echo "<div align='center'><h1>Aparelho removido com sucesso!</h1></div>";
-		header( "refresh:3;url=painelDoUsuario.php" );
+		else{
+			echo "<div align='center'><h1>Erro!</h1></div>";
+			echo "<script> window.location='index.php';</script>";
+		}
+		
+		
 	}
 	else{
 		echo "<div align='center'><h1>Nada acontece!</h1></div>";
